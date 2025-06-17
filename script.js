@@ -44,11 +44,20 @@ function myLastIndexOf(arr,value) {
  return location;
 }
 
-// Returns an array including all the keys in obj
+// Returns an array containing all the keys in obj
 function grabKeys(obj) {
   const keys = [];
   for (const key in obj) {
     keys[keys.length] = key;
   }
   return keys;
+}
+
+// Returns an array including all the values in obj
+function grabValues(obj) {
+  const values = [];
+  for (const key in obj) {
+    values[values.length] = obj[key];
+  }
+  return values;
 }
