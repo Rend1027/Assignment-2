@@ -11,6 +11,7 @@ const myForEach = (arr,callback) => {
 let array1 = [1, 2, 3, 4, 5];
 myForEach(array1, print);
 
+
 // ------  map  -------
 const addOne = (index, arr) => {
     arr[index] += 1
@@ -27,6 +28,7 @@ const myMap =(arr, callback) => {
 let arr2 = [4, 5, 6];
 console.log("Before map--->", arr2)
 console.log("After map--->", myMap(arr2, addOne));
+
 
 // ----- filter -----
 let arr3 = [1,2,3,4,5,6];
@@ -50,6 +52,7 @@ const myFilter= (arr, callback) => {
 
 console.log("Before Filter -->", arr3)
 console.log("After filter --->", myFilter(arr3,isEvenNumber ))
+
 
 // ----- some() ----
 
@@ -75,6 +78,7 @@ const  mySome= (arr, callback) => {
 console.log("Before some-->", arr4)
 console.log("After some() --->", mySome(arr4,greaterThan90))
 
+
 // ---- every() ----- 
 
 let array5 = [9, 51, 11, 12, 13];
@@ -95,6 +99,7 @@ const myEvery = (arr, callback) => {
 
 console.log("Before every()--->", array5);
 console.log("After every()--->", myEvery(array5,lessThan50));
+
 
 // ----- reduce -----
 // let arr = [1,2,3,4,5];
@@ -122,10 +127,12 @@ const myReduce = (arr, callback, initialValue) => {
     }
     return runninSum;
 }
-// let array6 = [1, 2, 5, 10];
 
 console.log("Before myReduce", array6)
-console.log("After myReduce", myReduce(array6, accumulate,0))// Returns true if value appears in array, returns false otherwise
+console.log("After myReduce", myReduce(array6, accumulate,0))
+
+
+// ----- myincludes -----
 function myIncludes(arr, value) {
   let present = false;
   for (let i = 0; i < arr.length; i++) {
@@ -188,3 +195,28 @@ function grabValues(obj) {
   }
   return values;
 }
+
+
+
+// ----- Miscellaneous -----
+ /* Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.*/
+ 
+ let nums = [0,1,0,3,12]
+ function moveZeros (nums) {
+  let counter = 0;
+  if(myIncludes(nums, 0)) {
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === 0) {
+          nums.splice(i,1)
+          counter++;
+        }
+    }
+    for (let i = counter; i > 0; i--) {
+      nums.push(0)
+    }
+  }
+  return nums;
+ }
+
+ console.log("Before move zeros--->", nums);
+ console.log("After move zeros--->", moveZeros(nums))
