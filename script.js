@@ -214,8 +214,9 @@ function grabValues(obj) {
     for (let i = counter; i > 0; i--) {
       nums.push(0)
     }
+    return nums;
   }
-  return nums;
+  return "There are no zeros on this array"
  }
 
  console.log("Before move zeros--->", nums);
